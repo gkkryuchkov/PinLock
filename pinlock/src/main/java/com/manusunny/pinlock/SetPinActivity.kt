@@ -14,11 +14,9 @@
  * limitations under the License.
  *
  */
+package com.manusunny.pinlock
 
-package com.manusunny.pinlock;
-
-import android.os.Bundle;
-
+import android.os.Bundle
 
 /**
  * Abstract class for PIN set activity.
@@ -26,55 +24,47 @@ import android.os.Bundle;
  * All subclasses should implement isPinCorrect() method
  * @since 1.0.0
  */
-public abstract class SetPinActivity extends BasePinActivity {
-
-
+abstract class SetPinActivity : BasePinActivity() {
     /**
      * Stores the first PIN entered by user. Used for confirmation
      */
-    private String firstPin = "";
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setLabel(getString(R.string.message_enter_new_pin));
-        disableForgotButton();
+    private var firstPin = ""
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setLabel(getString(R.string.message_enter_new_pin))
+        disableForgotButton()
     }
-
 
     /**
      * Implementation of BasePinActivity method
      * @param pin PIN value entered by user
      */
-    @Override
-    public final void onCompleted(String pin) {
-        resetStatus();
-        if ("".equals(firstPin)) {
-            firstPin = pin;
-            setLabel(getString(R.string.message_confirm_pin));
+    override fun onCompleted(pin: String) {
+        resetStatus()
+        if ("" == firstPin) {
+            firstPin = pin
+            setLabel(getString(R.string.message_confirm_pin))
         } else {
-            if (pin.equals(firstPin)) {
-                onPinSet(pin);
-                setResult(SUCCESS);
-                finish();
+            if (pin == firstPin) {
+                onPinSet(pin)
+                setResult(PinListener.Companion.SUCCESS)
+                finish()
             } else {
-                setLabel(getString(R.string.message_pin_mismatch));
-                firstPin = "";
+                setLabel(getString(R.string.message_pin_mismatch))
+                firstPin = ""
             }
         }
-        resetStatus();
+        resetStatus()
     }
 
     /**
      * Abstract method which gives the PIN entered by user
      * @param pin PIN value entered by user
      */
-    public abstract void onPinSet(String pin);
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        setResult(CANCELLED);
-        finish();
+    abstract fun onPinSet(pin: String?)
+    override fun onBackPressed() {
+        super.onBackPressed()
+        setResult(PinListener.CANCELLED)
+        finish()
     }
 }

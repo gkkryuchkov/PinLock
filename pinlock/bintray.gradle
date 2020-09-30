@@ -46,7 +46,7 @@ bintray {
     }
 }
 
-task writeNewPom << {
+task writeNewPom doLast {
     pom {
         project {
             name 'PinLockLibrary'

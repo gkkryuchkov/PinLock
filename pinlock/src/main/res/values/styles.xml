@@ -6,12 +6,12 @@
         <item name="backgroundColor">#FFFFFF</item>
 
         <item name="keypadButtonShape">@drawable/rectangle</item>
-        <item name="keypadTextColor">#000000</item>
-        <item name="keypadTextSize">20</item>
-        <item name="keypadWidth">200dp</item>
-        <item name="keypadHeight">230dp</item>
-        <item name="keypadVerticalSpacing">2dp</item>
-        <item name="keypadHorizontalSpacing">2dp</item>
+        <item name="keypadTextColor">#FFFFFF</item>
+        <item name="keypadTextSize">24</item>
+        <item name="keypadWidth">500dp</item>
+        <item name="keypadHeight">600dp</item>
+        <item name="keypadVerticalSpacing">10dp</item>
+        <item name="keypadHorizontalSpacing">10dp</item>
         <item name="keypadClickAnimationDuration">100</item>
 
         <item name="cancelForgotTextColor">#000000</item>
@@ -25,7 +25,7 @@
 
         <item name="statusEmptyBackground">@drawable/dot_empty</item>
         <item name="statusFilledBackground">@drawable/dot_filled</item>
-        <item name="statusDotDiameter">8dp</item>
+        <item name="statusDotDiameter">12dp</item>
         <item name="statusDotSpacing">10dp</item>
 
     </style>

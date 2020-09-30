@@ -14,11 +14,9 @@
  * limitations under the License.
  *
  */
+package com.manusunny.pinlock
 
-package com.manusunny.pinlock;
-
-import android.os.Bundle;
-
+import android.os.Bundle
 
 /**
  * Abstract class for PIN confirm activity.
@@ -26,49 +24,39 @@ import android.os.Bundle;
  * All subclasses should implement isPinCorrect() method
  * @since 1.0.0
  */
-public abstract class ConfirmPinActivity extends BasePinActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setLabel(getString(R.string.message_enter_pin));
+abstract class ConfirmPinActivity : BasePinActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setLabel(getString(R.string.message_enter_pin))
     }
-
 
     /**
      * Implementation of BasePinActivity method
      * @param pin PIN value entered by user
      */
-    @Override
-    public final void onCompleted(String pin) {
-        resetStatus();
+    override fun onCompleted(pin: String) {
+        resetStatus()
         if (isPinCorrect(pin)) {
-            setResult(SUCCESS);
-            finish();
+            setResult(PinListener.SUCCESS)
+            finish()
         } else {
-            setLabel(getString(R.string.message_invalid_pin));
+            setLabel(getString(R.string.message_invalid_pin))
         }
     }
-
 
     /**
      * Abstract method which decides the PIN entered by user is correct or not
      * @param pin PIN value entered by user
      * @return Boolean value indicates the status of PIN entered
      */
-    public abstract boolean isPinCorrect(String pin);
-
+    abstract fun isPinCorrect(pin: String?): Boolean
 
     /**
      * Abstract method which handles PIN forgot scenario
      */
-    @Override
-    public abstract void onForgotPin();
-
-
-    @Override
-    public void onBackPressed() {
-        setResult(CANCELLED);
-        finish();
+    abstract override fun onForgotPin()
+    override fun onBackPressed() {
+        setResult(PinListener.CANCELLED)
+        finish()
     }
 }

@@ -14,58 +14,50 @@
  * limitations under the License.
  *
  */
-
-package com.manusunny.pinlock;
-
+package com.manusunny.pinlock
 
 /**
  * Interface for PinListener which handles all PIN events like
  * onComplete, onChange and onForgot
  * @since 1.0.0
  */
-public interface PinListener {
-
-
-    /**
-     * Response code for operation success
-     */
-    int SUCCESS = 0;
-
-
-    /**
-     * Response code for operation cancelled
-     */
-    int CANCELLED = 1;
-
-
-    /**
-     * Response code for invalid PIN
-     */
-    int INVALID = 3;
-
-
-    /**
-     * Response code for forgot PIN
-     */
-    int FORGOT = 4;
-
-
+interface PinListener {
     /**
      * Invokes when user completes entering PIN
      * @param pin PIN value entered by user
      */
-    void onCompleted(String pin);
-
+    fun onCompleted(pin: String)
 
     /**
      * Invokes when user clicks on Keypad
      * @param length Current length of PIN
      */
-    void onPinValueChange(int length);
-
+    fun onPinValueChange(length: Int)
 
     /**
      * Invokes when user clicks forgot button
      */
-    void onForgotPin();
+    fun onForgotPin()
+
+    companion object {
+        /**
+         * Response code for operation success
+         */
+        const val SUCCESS = 0
+
+        /**
+         * Response code for operation cancelled
+         */
+        const val CANCELLED = 1
+
+        /**
+         * Response code for invalid PIN
+         */
+        const val INVALID = 3
+
+        /**
+         * Response code for forgot PIN
+         */
+        const val FORGOT = 4
+    }
 }

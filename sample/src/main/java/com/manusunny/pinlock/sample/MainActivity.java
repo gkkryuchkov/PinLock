@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,8 +28,8 @@ public class MainActivity extends Activity {
     }
 
     private void init() {
-        TextView setPin = (TextView) findViewById(R.id.set_pin);
-        TextView confirmPin = (TextView) findViewById(R.id.confirm_pin);
+        TextView setPin = findViewById(R.id.set_pin);
+        TextView confirmPin = findViewById(R.id.confirm_pin);
 
         String pin = pinLockPrefs.getString("pin", "");
         if (pin.equals("")) {

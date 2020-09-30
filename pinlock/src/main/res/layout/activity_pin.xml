@@ -9,32 +9,37 @@
         android:id="@+id/label"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.3"
+        android:layout_weight="0.1"
+        android:gravity="center"
         android:text="@string/message_enter_pin"
-        android:textSize="18sp"
-        android:gravity="center" />
+        android:textSize="18sp" />
 
     <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.1">
+        android:layout_gravity="center"
+        android:layout_weight="0.05">
+
         <com.manusunny.pinlock.components.StatusDots
             android:id="@+id/statusDots"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal" />
+            android:layout_gravity="center|center_horizontal"
+            android:gravity="center" />
     </FrameLayout>
 
     <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="0dp"
+        android:layout_margin="10dp"
         android:layout_weight="0.6">
+
         <com.manusunny.pinlock.components.Keypad
             android:id="@+id/keypad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:gravity="center" />
 
     </FrameLayout>
 
